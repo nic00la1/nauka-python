@@ -6,7 +6,7 @@
 #    słownik reprezentujący użytkownika. Dodaj do słownika
 #    nazwę użytkownika z parametru.
 # 3) Parametr contact będzie mógł przyjąć tekst lub liczbę.
-#    Sprawdź za pomocą funkcji isInstance jaki typ ma 
+#    Sprawdź za pomocą funkcji isinstance jaki typ ma 
 #    przekazany parametr contact. Jeżeli jest to typ string
 #    to poniższy kod zwróci wartość True dla zmiennej contact
 #    isinstance(contact, str) Wtedy zakładamy, że jest to
