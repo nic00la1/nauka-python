@@ -16,6 +16,7 @@ def findLargest(num1, num2):
         return num1
     elif num1 == num2:
         print(f"Obie liczby num1 i num2 są równe: {num1}")
+        return num1
     else:
         print(f"num2 jest większą liczbą: {num2}")
         return num2
