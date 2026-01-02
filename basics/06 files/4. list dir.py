@@ -1,0 +1,15 @@
+import os
+
+print("Current working directory: ", os.getcwd())
+
+files = os.listdir(".")
+# print(files) # current working dir
+
+files = os.listdir("./basics")
+# print(files) 
+
+files = os.listdir("./basics/05 OOP/cart")
+# print(files)
+
+files = os.listdir("../")
+print(files)
