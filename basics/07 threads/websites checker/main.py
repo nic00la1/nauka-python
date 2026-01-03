@@ -8,5 +8,5 @@ os.chdir(scriptDir)
 
 websites = Websites("websites.txt") 
 # print(websites.getNextWebsiteToCheck())
-websites.putWebsiteData({"index": 0, "website": "duckduckgo.com", "statusCode": 200})
-websites.saveReport()
+# websites.putWebsiteData({"index": 0, "website": "duckduckgo.com", "statusCode": 200})
+# websites.saveReport()
