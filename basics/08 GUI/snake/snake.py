@@ -15,6 +15,9 @@ class Snake:
 
     def refresh(self):
         print("Snake reset")
+        for seg in self.segments:
+            seg.goto(2000, 2000)
+        self.segments.clear()
 
         self.segments = []
         self.addSegment(self.startX, self.startY)
@@ -25,10 +28,14 @@ class Snake:
         t = turtle.Turtle("square")
         t.hideturtle()
         t.penup()
+        t.speed(0)
         t.goto(x, y)
         t.color("red")
         t.showturtle()
         self.segments.append(t)
+
+    def extend(self):
+        self.addSegment(1000, 1000)
 
     def keyUp(self):
         self.direction = Snake.UP
@@ -55,4 +62,35 @@ class Snake:
         if self.direction == Snake.RIGHT:
             headX += Snake.MOVE_DISTANCE
 
+        index = len(self.segments) - 1
+        while index > 0:
+            newX = self.segments[index - 1].xcor()
+            newY = self.segments[index - 1].ycor()
+            self.segments[index].goto(newX, newY)
+            index -= 1
+
         self.head.goto(headX, headY)
+
+
+    # Metoda sprawdzająca kolizje
+    def checkSelfCollision(self):
+        for seg in self.segments:
+            if seg == self.head:
+                continue
+            elif self.head.distance(seg) < 20:
+                return True
+
+        return False
+    
+    # Kolizja ścian
+    def checkWallsCollision(self, screenWidth, screenHeight):
+        halfWidth = screenWidth / 2
+        halfHeight = screenHeight / 2
+        x = self.head.xcor()
+        y = self.head.ycor()
+
+        if x > halfWidth or x < -halfWidth or y > halfHeight or y < -halfHeight:
+            return True
+        else:
+            return False
+

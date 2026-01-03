@@ -31,4 +31,12 @@ while True:
     time.sleep(0.1)
     snake.move()
 
+    if snake.head.distance(food) < 20:
+        food.refresh()
+        snake.extend()
+
+    if snake.checkSelfCollision() or snake.checkWallsCollision(width, height):
+        food.refresh()
+        snake.refresh()
+
 win.mainloop()
